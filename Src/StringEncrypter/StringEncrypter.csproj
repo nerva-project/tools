@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../Nerva.Tools.targets"/>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <AssemblyName>StringEncrypter</AssemblyName>
+  </PropertyGroup>
+</Project>
