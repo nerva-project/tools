@@ -5,11 +5,34 @@
             "name": "RandomKeyGen",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceRoot}/Bin/Debug/StringEncrypter.dll",
+            "program": "${workspaceRoot}/Bin/Debug/StringEncrypter",
             "cwd": "${workspaceRoot}/Bin",
-            "console": "externalTerminal",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
             "preLaunchTask": "build-debug",
             "args":["--random"]
-        }
+        },
+        {
+            "name": "Validate Node",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceRoot}/Bin/Debug/NodeValidator",
+            "cwd": "${workspaceRoot}/Bin",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "preLaunchTask": "build-debug",
+            "args":["--host", "180.150.72.169"]
+        },
+        {
+            "name": "Crawl Node",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceRoot}/Bin/Debug/NetCrawler",
+            "cwd": "${workspaceRoot}/Bin",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "preLaunchTask": "build-debug",
+            "args":["--host", "180.150.72.169"]
+        },
     ]
 }

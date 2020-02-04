@@ -3,6 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>StringEncrypter</AssemblyName>
+    <AssemblyName>NetCrawler</AssemblyName>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Src/Program.NodeValidator.cs" />
+  </ItemGroup>
 </Project>

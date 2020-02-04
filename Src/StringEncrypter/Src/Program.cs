@@ -1,8 +1,6 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Threading;
-using System.Threading.Tasks;
 using AngryWasp.Helpers;
 using AngryWasp.Logger;
 using Log = AngryWasp.Logger.Log;
@@ -29,7 +27,7 @@ namespace Tools
                     string key = StringHelper.GenerateRandomString(32);
                     byte[] b64 = Convert.FromBase64String(text.Encrypt(key));
                     byte[] result = Reduce(Reduce(SHA256.Create().ComputeHash(b64)));
-                    Log.Instance.Write(Log_Severity.None, $"Random {i}: {result.ToHex()}");
+                    Log.Instance.Write(Log_Severity.None, result.ToHex());
                 }
                 
                 return;

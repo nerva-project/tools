@@ -1,6 +1,5 @@
 <Project>
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net48</TargetFrameworks>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <RootNamespace>Tools</RootNamespace>
@@ -17,11 +16,20 @@
     <OutputPath>../../Bin/$(Configuration)</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="System.Net.Sockets" Version="*"/>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="../../External/AngryWasp.Serializer/Src/AngryWasp.Serializer/AngryWasp.Serializer.csproj" />
+    <ProjectReference Include="../../External/AngryWasp.Cryptography/Src/AngryWasp.Cryptography/AngryWasp.Cryptography.csproj" />
+    <ProjectReference Include="../../External/Nerva.Levin.CSharp/Src/Nerva.Levin/Nerva.Levin.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="../../LICENSE.txt">
       <Link>AngryWasp.LICENSE.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="../../External/Nerva.Identity/AngryWasp.asc">
+      <Link>AngryWasp.asc</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
