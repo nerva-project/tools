@@ -19,17 +19,15 @@
     <PackageReference Include="System.Net.Sockets" Version="*"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../External/AngryWasp.Serializer/Src/AngryWasp.Serializer/AngryWasp.Serializer.csproj" />
-    <ProjectReference Include="../../External/AngryWasp.Cryptography/Src/AngryWasp.Cryptography/AngryWasp.Cryptography.csproj" />
-    <ProjectReference Include="../../External/Nerva.Levin.CSharp/Src/Nerva.Levin/Nerva.Levin.csproj" />
+    <PackageReference Include="AngryWasp.Cryptography" Version="*"/>
+    <PackageReference Include="AngryWasp.Logger" Version="*"/>
+    <PackageReference Include="AngryWasp.Helpers" Version="*"/>
+    <PackageReference Include="AngryWasp.Cli" Version="*"/>
+    <PackageReference Include="Nerva.Rpc.CSharp" Version="*"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="../../LICENSE.txt">
       <Link>AngryWasp.LICENSE.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="../../External/Nerva.Identity/AngryWasp.asc">
-      <Link>AngryWasp.asc</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -3,9 +3,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>NetCrawler</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Src/Program.NodeValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AngryWasp.Logger" Version="*"/>
+    <PackageReference Include="AngryWasp.Helpers" Version="*"/>
+    <PackageReference Include="Nerva.Levin.CSharp" Version="*"/>
   </ItemGroup>
 </Project>

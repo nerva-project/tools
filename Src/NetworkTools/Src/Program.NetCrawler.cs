@@ -1,12 +1,8 @@
 using System;
 using AngryWasp.Logger;
-using AngryWasp.Helpers;
 using System.Collections.Generic;
-using System.Collections.Concurrent;
 using Nerva.Levin;
-using System.Threading;
-using System.Linq;
-using System.Diagnostics;
+using AngryWasp.Cli.Args;
 
 namespace Tools
 {
@@ -15,17 +11,15 @@ namespace Tools
         private static Log log = new Log(true);
 
         [STAThread]
-        public static void Main(string[] args)
+        public static void Main(string[] rawArgs)
         {
-            CommandLineParser cmd = CommandLineParser.Parse(args);
-            // We set the default logger to display no input
-            // and create a new logger to just display the crawler info
+            Arguments args = Arguments.Parse(rawArgs);
             Log.CreateInstance(false);
 
-            if (cmd["host"] == null)
+            if (args["host"] == null)
                log.Write(Log_Severity.Fatal, "Need a host");
             
-            string host = cmd["host"].Value;
+            string host = args["host"].Value;
 
             Crawler c = new Crawler(log);
 

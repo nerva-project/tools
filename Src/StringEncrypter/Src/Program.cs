@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
+using AngryWasp.Cli;
+using AngryWasp.Cli.Args;
 using AngryWasp.Helpers;
 using AngryWasp.Logger;
 using Log = AngryWasp.Logger.Log;
@@ -10,16 +12,14 @@ namespace Tools
     public class MainClass
     {
         [STAThread]
-        public static void Main(string[] args)
+        public static void Main(string[] rawArgs)
         {
-            CommandLineParser cmd = CommandLineParser.Parse(args);
+            Arguments args = Arguments.Parse(rawArgs);
             Log.CreateInstance(true);
 
-            if (cmd["random"] != null)
+            if (args["random"] != null)
             {
-                int count = 0;
-                if (!int.TryParse(cmd["random"].Value, out count))
-                    count = 10;
+                var count = args.GetInt("random", 10);
 
                 for (int i = 0; i < count; i++)
                 {
@@ -35,8 +35,8 @@ namespace Tools
 
             string pw = null;
 
-            if (cmd["password"] != null)
-                pw = cmd["password"].Value;
+            if (args["password"] != null)
+                pw = args["password"].Value;
             else
             {
                 pw = PasswordPrompt.Get();
@@ -46,9 +46,9 @@ namespace Tools
                     Log.Instance.Write(Log_Severity.Fatal, "Passwords did not match");
             }
 
-            if (cmd["encrypt"] != null)
+            if (args["encrypt"] != null)
             {
-                string text = cmd["encrypt"].Value;
+                string text = args["encrypt"].Value;
                 if (File.Exists(text))
                     text = File.ReadAllText(text);
                 
@@ -59,9 +59,9 @@ namespace Tools
                 }
             }
 
-            if (cmd["decrypt"] != null)
+            if (args["decrypt"] != null)
             {
-                string text = cmd["decrypt"].Value;
+                string text = args["decrypt"].Value;
                 if (File.Exists(text))
                     text = File.ReadAllText(text);
 
